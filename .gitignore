@@ -1,0 +1,12 @@
+﻿################################################################################
+# この .gitignore ファイルは Microsoft(R) Visual Studio によって自動的に作成されました。
+################################################################################
+
+/.vs
+/GoogleHomeConsole/bin
+/GoogleHomeConsole/obj
+/GoogleHomeConsole/Properties/PublishProfiles
+/GoogleHomeConsole/Web.Release.config
+/GoogleHomeConsole/Web.Debug.config
+/GoogleHomeConsole/Web.config
+/packages
