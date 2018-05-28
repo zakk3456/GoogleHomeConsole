@@ -16,6 +16,9 @@ namespace GoogleHomeConsole
 {
     public partial class Main : System.Web.UI.Page
     {
+        /// <summary>
+        /// ページロードイベント
+        /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -24,12 +27,18 @@ namespace GoogleHomeConsole
             }
         }
 
+        /// <summary>
+        /// 喋らせるボタン押下イベント
+        /// </summary>
         protected void BtnSay_Click(object sender, EventArgs e)
         {
             var say = this.tbxSay.Text.Trim();
             SayGoogleHome(say);
         }
 
+        /// <summary>
+        /// 汎用ボタン押下イベント
+        /// </summary>
         protected void CommonButtons_Click(object sender, EventArgs e)
         {
             if (!(sender is Button btn))
@@ -37,10 +46,15 @@ namespace GoogleHomeConsole
                 return;
             }
 
+            //ボタンの文字を喋らせる
             var say = btn.Text.Trim();
             SayGoogleHome(say);
         }
 
+        /// <summary>
+        /// GoogleHomeを喋らせる
+        /// </summary>
+        /// <param name="say">喋らせる内容</param>
         private void SayGoogleHome(string say)
         {
             var ngrokDomainSession = Session["NgrokDomain"];
@@ -67,6 +81,10 @@ namespace GoogleHomeConsole
             }
         }
 
+        /// <summary>
+        /// ngrokのドメインを取得する
+        /// </summary>
+        /// <returns>取得したドメイン</returns>
         private string GetNgrokDomain()
         {
             string storageConnectionString = Properties.Settings.Default.StorageConnectionString;
